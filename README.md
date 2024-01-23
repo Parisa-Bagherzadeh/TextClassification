@@ -25,7 +25,7 @@ Place your training and testing datasets in the dataset/ directory. Ensure that 
 ## Usage  
 Run the text classification program:  
 ```
-python text_classification.py --dimension Dimension Of Feature Vector  --sentence Test Sentence
+python text_classification.py --dimension Dimension_Of_Feature_Vector  --sentence Test_Sentence
 ```
 The program will preprocess the data, load the GloVe embeddings, train a text classification model, and evaluate its performance on the testing dataset.  
 

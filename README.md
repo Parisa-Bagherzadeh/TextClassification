@@ -29,7 +29,7 @@ python text_classification.py --dimension Dimension_Of_Feature_Vector  --sentenc
 ```
 The program will preprocess the data, load the GloVe embeddings, train a text classification model, and evaluate its performance on the testing dataset.  
 
-#### Also I have test the model with/without dropout layer. Inference time will reduced with dropout layer but the loss of both train and test data will increases and accuracy of train and test data will decreases
+#### Also I have test the model with/without dropout layer. Inference time will reduced when using dropout layer but the loss of both train and test data will increases and accuracy of train and test data will decreases
 
 ### Result without Dropout layer
 <table>

@@ -48,20 +48,22 @@ class EmojiTextClassifier:
 
     def load_model(self):
         self.model = tf.keras.models.Sequential([
-            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dropout(0.5),
             tf.keras.layers.Dense(5, 
                                   input_shape = (self.dim,),
                                   activation = "softmax")
         ])
 
+        
+
+
+    def train(self, X_train, Y_train):
         self.model.compile(
             tf.keras.optimizers.Adam(),
             loss = "categorical_crossentropy",
             metrics = ["accuracy"]
         )
 
-
-    def train(self, X_train, Y_train):
         output = self.model.fit(X_train, Y_train, epochs = 400)
         return output
 
@@ -88,7 +90,7 @@ class EmojiTextClassifier:
 if __name__ == "__main__":
 
     parser = ArgumentParser()
-    parser.add_argument("--dimension", type = int, help="dimension of feature vector", default = 300)
+    parser.add_argument("--dimension", type = int, help="dimension of feature vector", default = 200)
     parser.add_argument("--sentence",type = str, 
                         help="example sentence to determine its class", 
                         default="I like pizza")
@@ -145,10 +147,10 @@ if __name__ == "__main__":
 
 
     #Inference
-    
     start = time.time()
     for i in range(100):
         result = textclassifier.inference(args.sentence)
+    inference_time = time.time() - start
         
     inference_avg_time = (time.time() - start) / 100 
 
